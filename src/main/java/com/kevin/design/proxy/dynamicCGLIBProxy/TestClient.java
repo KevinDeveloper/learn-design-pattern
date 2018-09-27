@@ -36,9 +36,9 @@ Spring两种代理方式
  */
 public class TestClient {
     public static void main(String[] args) {
-        CglibProxy proxy = new CglibProxy();
-        // 此刻，mySubject，而是增强过的目标类
-        MySubject mySubject = (MySubject) proxy.getProxy(MySubject.class);
+        CglibProxy cglibProxy = new CglibProxy();
+        // 此刻，mySubject不是原先的实现类，而是增强过的目标类
+        Subject mySubject = (MySubject) cglibProxy.getProxy(MySubject.class);
         mySubject.operation1();
         mySubject.operation2("Kevin", "opzoon");
 
