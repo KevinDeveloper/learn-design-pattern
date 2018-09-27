@@ -15,14 +15,27 @@ import java.util.Arrays;
  */
 public class CglibProxy implements MethodInterceptor {
 
-    private Enhancer enhancer = new Enhancer();
 
     public Object getProxy(Class clazz) {
+        // 定义增强器
+        Enhancer enhancer = new Enhancer();
+        // 定义要代理的对象
         enhancer.setSuperclass(clazz);
+        // 定义回调函数
         enhancer.setCallback(this);
+        // 返回生成代理对象
         return enhancer.create();
     }
 
+    /**
+     * 代理回调方法
+     * @param obj 被代理的目标对象
+     * @param method 目标类中被拦截的方法
+     * @param args 调用拦截方法所需的参数
+     * @param proxy 指的是用来调用目标类被拦截方法的方法，这个方法比反射更快
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
         System.out.println("CglibProxy 前置增强");

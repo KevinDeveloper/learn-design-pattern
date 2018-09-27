@@ -18,7 +18,10 @@ public class TestClient {
          * Class<?>[] interfaces：得到全部的接口
          * InvocationHandler h：得到InvocationHandler接口的子类实例
          */
-        Subject subject = (Subject) Proxy.newProxyInstance(TestClient.class.getClassLoader(), new Class[]{Subject.class}, new JdkProxySubject(new MySubject()));
+        Subject subject = (Subject) Proxy.newProxyInstance(
+                TestClient.class.getClassLoader(),
+                new Class[]{Subject.class},
+                new JdkProxySubject(new MySubject()));
         subject.operation1();
         subject.operation2();
     }
