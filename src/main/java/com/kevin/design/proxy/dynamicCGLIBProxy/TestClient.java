@@ -2,7 +2,7 @@ package com.kevin.design.proxy.dynamicCGLIBProxy;
 
 /**
  * @ClassName: TestClient
- * @Description: 客户端没讲
+ * @Description: 客户端
  * @Author: Kevin
  * @Date: 2018/9/26 16:48
  */

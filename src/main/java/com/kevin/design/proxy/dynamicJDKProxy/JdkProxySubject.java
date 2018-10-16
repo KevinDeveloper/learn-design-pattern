@@ -12,10 +12,10 @@ import java.lang.reflect.Method;
  */
 public class JdkProxySubject implements InvocationHandler {
 
-    private MySubject mySubject;
+    private Subject subject;
 
-    public JdkProxySubject(MySubject mySubject) {
-        this.mySubject = mySubject;
+    public JdkProxySubject(Subject mySubject) {
+        this.subject = mySubject;
     }
 
 
@@ -33,7 +33,7 @@ public class JdkProxySubject implements InvocationHandler {
         Object result = null;
         try{
             //利用反射动态的来反射方法，这就是动态代理和静态代理的区别
-            result = method.invoke(mySubject,args);
+            result = method.invoke(subject,args);
         }catch (Exception e){
             System.out.println("ex:"+e.getMessage());
             throw e;
